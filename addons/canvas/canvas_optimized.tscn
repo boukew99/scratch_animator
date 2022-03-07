@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/canvas/canvas.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/canvas/canvas_optimized.gd" type="Script" id=2]
+
+[node name="CanvasOptimized" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CaptureTimer" type="Timer" parent="." index="0"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="CaptureTimer" to="." method="_on_CaptureTimer_timeout"]
