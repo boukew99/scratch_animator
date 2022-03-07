@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://animater.gd" type="Script" id=1]
 [ext_resource path="res://addons/canvas/canvas_with_background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/canvas/canvas_optimized.tscn" type="PackedScene" id=3]
 
 [sub_resource type="InputEventAction" id=3]
 action = "ui_page_down"
@@ -15,6 +14,24 @@ action = "ui_page_up"
 
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventKey" id=5]
+scancode = 65
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventKey" id=7]
+scancode = 83
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventKey" id=9]
+scancode = 80
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
 
 [node name="Animater" type="PanelContainer"]
 anchor_right = 1.0
@@ -34,6 +51,7 @@ margin_bottom = 24.0
 [node name="Prev" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_right = 20.0
 margin_bottom = 24.0
+hint_tooltip = "previous"
 action_mode = 0
 shortcut = SubResource( 4 )
 text = "<"
@@ -42,6 +60,7 @@ text = "<"
 margin_left = 24.0
 margin_right = 44.0
 margin_bottom = 24.0
+hint_tooltip = "next"
 action_mode = 0
 shortcut = SubResource( 2 )
 text = ">"
@@ -63,12 +82,16 @@ caret_blink_speed = 0.5
 margin_left = 118.0
 margin_right = 138.0
 margin_bottom = 24.0
+hint_tooltip = "add"
+shortcut = SubResource( 6 )
 text = "+"
 
 [node name="Sub" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 142.0
 margin_right = 159.0
 margin_bottom = 24.0
+hint_tooltip = "subtract"
+shortcut = SubResource( 8 )
 text = "-"
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
@@ -80,6 +103,7 @@ margin_bottom = 24.0
 margin_left = 171.0
 margin_right = 225.0
 margin_bottom = 24.0
+shortcut = SubResource( 10 )
 text = "Play"
 
 [node name="FPS" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
@@ -90,6 +114,18 @@ min_value = 1.0
 max_value = 60.0
 value = 1.0
 suffix = "fps"
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 307.0
+margin_right = 311.0
+margin_bottom = 24.0
+
+[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 315.0
+margin_right = 356.0
+margin_bottom = 24.0
+hint_tooltip = "create a new directory where to store the frames"
+text = "save"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 28.0
@@ -109,10 +145,16 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Canvas" parent="VBoxContainer/TabContainer" instance=ExtResource( 3 )]
-visible = false
-
 [node name="FPSTimer" type="Timer" parent="."]
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 356.0
+margin_bottom = 250.0
+window_title = "Open a Directory"
+mode = 2
+access = 2
+current_dir = "/Users/bouke/Documents/GitHub/scratch_animater"
+current_path = "/Users/bouke/Documents/GitHub/scratch_animater/"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Prev" to="." method="_on_Prev_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_pressed"]
@@ -121,5 +163,7 @@ visible = false
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Sub" to="." method="_on_Sub_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_toggled"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/FPS" to="." method="_on_FPS_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="tab_changed" from="VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="timeout" from="FPSTimer" to="." method="_on_FPSTimer_timeout"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
