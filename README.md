@@ -11,11 +11,12 @@ Try it on the [webversion](https://howyoudoing.itch.io/scratch-animator) or edit
 1. Draw on frame
 2. Add frames
 3. Navigate frames
-4. Name frames
-5. Delete frames
-6. Play frames
-7. Set Frames Per Second (FPS)
-8. Exporting frames
+4. Drag & Drop frames
+5. Name frames
+6. Delete frames
+7. Play frames
+8. Set Frames Per Second (FPS)
+9. Exporting frames
 
 ## License
 [MIT](LICENSE)
