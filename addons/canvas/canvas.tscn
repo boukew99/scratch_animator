@@ -2,14 +2,13 @@
 
 [ext_resource path="res://addons/canvas/canvas.gd" type="Script" id=1]
 
-[node name="Canvas" type="TextureButton" groups=["canvas"]]
+[node name="Canvas" type="TextureButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
-toggle_mode = true
 expand = true
 stretch_mode = 2
 script = ExtResource( 1 )
 
+[connection signal="button_down" from="." to="." method="_on_Canvas_button_down"]
 [connection signal="gui_input" from="." to="." method="_on_Canvas_gui_input"]
-[connection signal="toggled" from="." to="." method="_on_Canvas_toggled"]

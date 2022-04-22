@@ -7,5 +7,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Canvas" parent="." instance=ExtResource( 1 )]
-toggle_mode = false
-action_mode = 0

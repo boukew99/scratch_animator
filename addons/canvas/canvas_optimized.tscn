@@ -6,8 +6,4 @@
 [node name="CanvasOptimized" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CaptureTimer" type="Timer" parent="." index="0"]
-wait_time = 2.0
-one_shot = true
-
-[connection signal="timeout" from="CaptureTimer" to="." method="_on_CaptureTimer_timeout"]
+[connection signal="button_up" from="." to="." method="_on_CanvasOptimized_button_up"]

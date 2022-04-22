@@ -60,3 +60,7 @@ func _on_FileDialog_dir_selected(dir):
 		image.flip_y() # capture is y-flipped
 		var frame = frames.get_child(index)
 		image.get_rect(frame.get_global_rect()).save_png(dir.plus_file(frame.name + ".png"))
+
+
+func _on_MouseMode_toggled(button_pressed):
+	get_tree().set_group("canvas", "toggle_mode", button_pressed)

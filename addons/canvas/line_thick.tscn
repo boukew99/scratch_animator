@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/canvas/line.tscn" type="PackedScene" id=1]
+
+[node name="ThickLine2D" instance=ExtResource( 1 )]
+width = 16.0
+joint_mode = 2
