@@ -17,6 +17,7 @@ Try it on the [webversion](https://howyoudoing.itch.io/scratch-animator) or edit
 7. Play frames
 8. Set Frames Per Second (FPS)
 9. Exporting frames
+10. Shortcuts (visible in tooltips)
 
 ## License
 [MIT](LICENSE)
