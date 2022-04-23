@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://animater.gd" type="Script" id=1]
-[ext_resource path="res://addons/canvas/canvas_with_background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/canvas/canvas_background.tscn" type="PackedScene" id=2]
 
 [sub_resource type="InputEventAction" id=3]
 action = "ui_page_down"
