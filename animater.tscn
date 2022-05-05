@@ -1,19 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://animater.gd" type="Script" id=1]
 [ext_resource path="res://addons/canvas/canvas_background.tscn" type="PackedScene" id=2]
-
-[sub_resource type="InputEventAction" id=3]
-action = "ui_page_down"
-
-[sub_resource type="ShortCut" id=4]
-shortcut = SubResource( 3 )
-
-[sub_resource type="InputEventAction" id=1]
-action = "ui_page_up"
-
-[sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 1 )
+[ext_resource path="res://icons/Play.png" type="Texture" id=3]
+[ext_resource path="res://icons/MoveLeft.png" type="Texture" id=4]
+[ext_resource path="res://icons/MoveRight.png" type="Texture" id=5]
+[ext_resource path="res://icons/Duplicate.png" type="Texture" id=6]
+[ext_resource path="res://icons/Add.png" type="Texture" id=7]
+[ext_resource path="res://icons/Remove.png" type="Texture" id=8]
+[ext_resource path="res://icons/Save.png" type="Texture" id=10]
 
 [sub_resource type="InputEventKey" id=5]
 scancode = 65
@@ -33,6 +28,18 @@ scancode = 80
 [sub_resource type="ShortCut" id=10]
 shortcut = SubResource( 9 )
 
+[sub_resource type="InputEventAction" id=3]
+action = "ui_page_down"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_page_up"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
 [node name="Animater" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,108 +51,142 @@ margin_top = 7.0
 margin_right = 505.0
 margin_bottom = 385.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 498.0
-margin_bottom = 24.0
-
-[node name="Prev" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 20.0
-margin_bottom = 24.0
-hint_tooltip = "previous"
-action_mode = 0
-shortcut = SubResource( 4 )
-text = "<"
-
-[node name="Next" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 24.0
-margin_right = 44.0
-margin_bottom = 24.0
-hint_tooltip = "next"
-action_mode = 0
-shortcut = SubResource( 2 )
-text = ">"
-
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 48.0
-margin_right = 52.0
-margin_bottom = 24.0
-
-[node name="Tag" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-margin_left = 56.0
-margin_right = 114.0
-margin_bottom = 24.0
-placeholder_text = "tag"
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Add" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 118.0
-margin_right = 138.0
-margin_bottom = 24.0
-hint_tooltip = "add"
-shortcut = SubResource( 6 )
-text = "+"
-
-[node name="Sub" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 142.0
-margin_right = 159.0
-margin_bottom = 24.0
-hint_tooltip = "subtract"
-shortcut = SubResource( 8 )
-text = "-"
-
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 163.0
-margin_right = 167.0
-margin_bottom = 24.0
-
-[node name="Play" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
-margin_left = 171.0
-margin_right = 225.0
-margin_bottom = 24.0
-shortcut = SubResource( 10 )
-text = "Play"
-
-[node name="FPS" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
-margin_left = 229.0
-margin_right = 303.0
-margin_bottom = 24.0
-min_value = 1.0
-max_value = 60.0
-value = 1.0
-suffix = "fps"
-
-[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 307.0
-margin_right = 311.0
-margin_bottom = 24.0
-
-[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 315.0
-margin_right = 356.0
-margin_bottom = 24.0
-hint_tooltip = "create a new directory where to store the frames"
-text = "save"
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 28.0
-margin_right = 498.0
-margin_bottom = 32.0
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
-margin_top = 36.0
-margin_right = 498.0
-margin_bottom = 378.0
+margin_bottom = 342.0
 size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 466.0
+margin_bottom = 342.0
+size_flags_horizontal = 3
 drag_to_rearrange_enabled = true
 
-[node name="0" parent="VBoxContainer/TabContainer" instance=ExtResource( 2 )]
+[node name="0" parent="VBoxContainer/HBoxContainer2/TabContainer" instance=ExtResource( 2 )]
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 470.0
+margin_right = 498.0
+margin_bottom = 342.0
+
+[node name="Add" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_right = 28.0
+margin_bottom = 22.0
+hint_tooltip = "add"
+shortcut = SubResource( 6 )
+icon = ExtResource( 7 )
+
+[node name="Duplicate" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 26.0
+margin_right = 28.0
+margin_bottom = 48.0
+icon = ExtResource( 6 )
+
+[node name="Remove" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 52.0
+margin_right = 28.0
+margin_bottom = 74.0
+hint_tooltip = "subtract"
+shortcut = SubResource( 8 )
+icon = ExtResource( 8 )
+
+[node name="VSlider" type="VSlider" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 78.0
+margin_right = 28.0
+margin_bottom = 342.0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 346.0
+margin_right = 498.0
+margin_bottom = 350.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 354.0
+margin_right = 498.0
+margin_bottom = 378.0
+
+[node name="Play" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 28.0
+margin_bottom = 24.0
+toggle_mode = true
+shortcut = SubResource( 10 )
+icon = ExtResource( 3 )
+
+[node name="FPS" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 32.0
+margin_right = 106.0
+margin_bottom = 24.0
+min_value = 1.0
+max_value = 60.0
+value = 8.0
+suffix = "fps"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 114.0
+margin_bottom = 24.0
+
+[node name="Rename" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+margin_left = 118.0
+margin_right = 282.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+placeholder_text = "name"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="RenameOption" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 286.0
+margin_right = 355.0
+margin_bottom = 24.0
+text = "Frame"
+items = [ "Frame", null, false, 0, null, "Narrator", null, false, 1, null, "Subtitle", null, false, 2, null ]
+selected = 0
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 359.0
+margin_right = 363.0
+margin_bottom = 24.0
+
+[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 367.0
+margin_right = 426.0
+margin_bottom = 24.0
+hint_tooltip = "create a new directory where to store the frames"
+text = "Save"
+icon = ExtResource( 10 )
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 430.0
+margin_right = 434.0
+margin_bottom = 24.0
+
+[node name="Prev" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 438.0
+margin_right = 466.0
+margin_bottom = 24.0
+hint_tooltip = "previous"
+action_mode = 0
+shortcut = SubResource( 4 )
+icon = ExtResource( 4 )
+
+[node name="Next" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 470.0
+margin_right = 498.0
+margin_bottom = 24.0
+hint_tooltip = "next"
+action_mode = 0
+shortcut = SubResource( 2 )
+icon = ExtResource( 5 )
+
 [node name="FPSTimer" type="Timer" parent="."]
+wait_time = 0.125
 
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_right = 356.0
@@ -156,14 +197,16 @@ access = 2
 current_dir = "/Users/bouke/Documents/GitHub/scratch_animater"
 current_path = "/Users/bouke/Documents/GitHub/scratch_animater/"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Prev" to="." method="_on_Prev_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_pressed"]
-[connection signal="text_entered" from="VBoxContainer/HBoxContainer/Tag" to="." method="_on_Tag_text_entered"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Add" to="." method="_on_Add_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Sub" to="." method="_on_Sub_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/Duplicate" to="." method="_on_Duplicate_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/Remove" to="." method="_on_Remove_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/VBoxContainer/VSlider" to="." method="_on_VSlider_value_changed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_toggled"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/FPS" to="." method="_on_FPS_value_changed"]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer/Rename" to="." method="_on_Rename_text_entered"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/RenameOption" to="." method="_on_RenameOption_item_selected"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
-[connection signal="tab_changed" from="VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Prev" to="." method="_on_Prev_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_pressed"]
 [connection signal="timeout" from="FPSTimer" to="." method="_on_FPSTimer_timeout"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
