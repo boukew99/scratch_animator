@@ -63,14 +63,17 @@ func _on_Remove_pressed():
 func _on_Duplicate_pressed():
 	var dup = frames.get_current_tab_control().duplicate()
 	frames.add_child(dup, true)
+	frames.move_child(dup, frames.current_tab +1)
+	_on_Next_pressed()
 
 
 func _on_Rename_text_entered(new_text):
 	frames.get_current_tab_control().name = new_text
-	$VBoxContainer/HBoxContainer/Name.text = ""
 
 
 func _on_RenameOption_item_selected(index):
 	pass # Replace with function body.
 
 
+func _on_TabContainer_sort_children():
+	slider.max_value = frames.get_tab_count() * 7
