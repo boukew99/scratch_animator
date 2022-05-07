@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://animater.gd" type="Script" id=1]
 [ext_resource path="res://addons/canvas/canvas_background.tscn" type="PackedScene" id=2]
@@ -15,6 +15,12 @@ scancode = 65
 
 [sub_resource type="ShortCut" id=6]
 shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventKey" id=11]
+scancode = 68
+
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
 
 [sub_resource type="InputEventKey" id=7]
 scancode = 83
@@ -84,6 +90,7 @@ icon = ExtResource( 7 )
 margin_top = 26.0
 margin_right = 28.0
 margin_bottom = 48.0
+shortcut = SubResource( 12 )
 icon = ExtResource( 6 )
 
 [node name="Remove" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
