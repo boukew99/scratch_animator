@@ -71,9 +71,5 @@ func _on_Rename_text_entered(new_text):
 	frames.get_current_tab_control().name = new_text
 
 
-func _on_RenameOption_item_selected(index):
-	pass # Replace with function body.
-
-
 func _on_TabContainer_sort_children():
 	slider.max_value = frames.get_tab_count() * 7

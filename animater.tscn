@@ -131,26 +131,13 @@ margin_bottom = 24.0
 
 [node name="Rename" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 margin_left = 118.0
-margin_right = 282.0
+margin_right = 363.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 clear_button_enabled = true
 placeholder_text = "name"
 caret_blink = true
 caret_blink_speed = 0.5
-
-[node name="RenameOption" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
-margin_left = 286.0
-margin_right = 355.0
-margin_bottom = 24.0
-text = "Frame"
-items = [ "Frame", null, false, 0, null, "Narrator", null, false, 1, null, "Subtitle", null, false, 2, null ]
-selected = 0
-
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
-margin_left = 359.0
-margin_right = 363.0
-margin_bottom = 24.0
 
 [node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 367.0
@@ -160,7 +147,7 @@ hint_tooltip = "create a new directory where to store the frames"
 text = "Save"
 icon = ExtResource( 10 )
 
-[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 margin_left = 430.0
 margin_right = 434.0
 margin_bottom = 24.0
@@ -203,7 +190,6 @@ current_path = "/Users/bouke/Documents/GitHub/scratch_animater/"
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/Play" to="." method="_on_Play_toggled"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/FPS" to="." method="_on_FPS_value_changed"]
 [connection signal="text_entered" from="VBoxContainer/HBoxContainer/Rename" to="." method="_on_Rename_text_entered"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer/RenameOption" to="." method="_on_RenameOption_item_selected"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Prev" to="." method="_on_Prev_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_pressed"]
