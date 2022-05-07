@@ -10,14 +10,15 @@ Try it on the [webversion](https://howyoudoing.itch.io/scratch-animator) or edit
 ## Functionality
 1. Draw on frame
 2. Add frames
-3. Navigate frames
-4. Drag & Drop frames
-5. Name frames
-6. Delete frames
-7. Play frames
-8. Set Frames Per Second (FPS)
-9. Exporting frames
-10. Shortcuts (visible in tooltips)
+3. Duplicating frames
+4. Navigate frames
+5. Drag & Drop frames
+6. Name frames
+7. Delete frames
+8. Play frames
+9. Set Frames Per Second (FPS)
+10. Exporting frames
+11. Shortcuts (visible in tooltips)
 
 ## License
 [MIT](LICENSE)
