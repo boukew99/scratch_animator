@@ -5,6 +5,10 @@ var canvas = preload("res://addons/canvas/canvas_background.tscn")
 onready var frames = $VBoxContainer/HBoxContainer2/TabContainer
 onready var slider = $VBoxContainer/HBoxContainer2/VBoxContainer/VSlider
 
+func _ready():
+	if OS.get_name() == "HTML5":
+		$VBoxContainer/HBoxContainer/Save.hide()
+		
 func _on_Next_pressed():
 	frames.current_tab = wrapi(frames.current_tab +1, 0, frames.get_tab_count())
 
