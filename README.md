@@ -24,4 +24,4 @@ Try it on the [webversion](https://howyoudoing.itch.io/scratch-animator) or edit
 
 
 ## Contributing
-Leave a issue in [Issues](https://github.com/boukew99/scratch_animater/issues/new) if there is one. Small additions are prefered.
+Indicate a issue you might have in [Issues](https://github.com/boukew99/scratch_animater/issues/new). Share the project or creations with it to interested people (including me). Or make a pull request.
