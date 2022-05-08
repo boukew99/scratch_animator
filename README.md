@@ -5,7 +5,7 @@ Scratch Animator is an [MIT](LICENSE) demo of an simple animation program with t
 
 
 ## Installation
-Clone the project and import it in [Godot Engine](https://godotengine.org/) or get it from the Godot Asset Library under `Scratch Animator`. 
+Clone the project and import it in [Godot Engine](https://godotengine.org/) or get it from the [Godot Asset Library](https://godotengine.org/asset-library/asset/1273) under `Scratch Animator`. 
 
 ## Functionality 
 
