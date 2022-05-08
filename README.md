@@ -18,4 +18,4 @@ Clone the project and import it in [Godot Engine](https://godotengine.org/) or g
 16. Go to next/previous frame
 
 ## Contributing
-Indicate any [issues](https://github.com/boukew99/scratch_animator/issues/new) or make a tested and maintainable pull request. Or just share the project or its creations.
+Indicate any [issues](https://github.com/boukew99/scratch_animator/issues/new). Or make a tested and maintainable pull request.
