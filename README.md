@@ -8,4 +8,4 @@ Scratch Animator is an [MIT](LICENSE) demo of an simple animation program with t
 
 
 ## Contributing
-I am only this in my free time, but you can indicate any focused [issue](https://github.com/boukew99/scratch_animator/issues/new) or make a tested and maintainable pull request.
+I am only this in my free time, so contribution are fine as long as the project stays easily maintainable.
