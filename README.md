@@ -8,4 +8,4 @@ Scratch Animator is an [MIT](LICENSE) demo of an simple animation program with t
 
 
 ## Contributing
-I am only this in my free time, so contribution are fine as long as the project stays easily maintainable.
+I am only contributing to this in my free time, so contribution are fine as long as the project stays easily maintainable.
