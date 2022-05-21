@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rename.png-7591e5dd246fdf6c9b06a200f65c92a1.stex"
+path="res://.import/AnimatedTexture.png-904f000d1d864a847dd9723e79fb7c04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/Rename.png"
-dest_files=[ "res://.import/Rename.png-7591e5dd246fdf6c9b06a200f65c92a1.stex" ]
+source_file="res://icons/AnimatedTexture.png"
+dest_files=[ "res://.import/AnimatedTexture.png-904f000d1d864a847dd9723e79fb7c04.stex" ]
 
 [params]
 

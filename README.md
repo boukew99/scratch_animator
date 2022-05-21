@@ -6,4 +6,12 @@ Scratch Animator is an [MIT](LICENSE) demo of an simple animation program with t
 
 ![screenshot](https://raw.githubusercontent.com/boukew99/scratch_animator/main/screenshots/Screenshot%202022-05-07.png)
 
+## Implementation
+The projects consist of an [scratch animator scene](scratch_animator.tscn) with the [scratch animator script](script_animator.gd) attached. Here are the [icons](icons) also referenced. The scene is subdivided in an About Dialog and the Frames Interface, which control the frames. The frames consist out of [canvas scenes](canvas), which handle drawing.
 
+
+## Creating a video from exported frames (for Windows)
+Scratch Animator can save each frame individually as an image, but not in video format. Though Windows provides an tool to make a video from individual images. Do this by multi-selecting (Shift/Control + Click) the exported images and open the Right-Click menu and select `create a new video`. This opens the Photos tool. It provides multiple fun tools, but the most essential for our purpose is setting the aspect ratio (16:9 or 4:3) and setting frame duration. Then `Finish` the video and save it.
+
+## Inspirations
+Loosly taken inspirations from [Behind the Desgin: Looom](https://developer.apple.com/news/?id=s26ze13m) and [Loom user guide](https://www.iorama.studio/looom-user-guide).

@@ -10,16 +10,28 @@ config_version=4
 
 [application]
 
-config/name="scratch_animater"
-run/main_scene="res://animater.tscn"
+config/name="Scratch Animator"
+run/main_scene="res://animator.tscn"
 run/low_processor_mode=true
-config/icon="res://icon.png"
+config/icon="res://icons/scratch_animator.png"
 
 [display]
 
 window/size/width=512
 window/size/height=392
 
+[gui]
+
+common/snap_controls_to_pixels=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
