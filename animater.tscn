@@ -186,8 +186,8 @@ margin_bottom = 250.0
 window_title = "Open a Directory"
 mode = 2
 access = 2
-current_dir = "/Users/bouke/Documents/GitHub/scratch_animater"
-current_path = "/Users/bouke/Documents/GitHub/scratch_animater/"
+current_dir = "/home/bouke/scratch_animator"
+current_path = "/home/bouke/scratch_animator/"
 
 [connection signal="sort_children" from="VBoxContainer/HBoxContainer2/TabContainer" to="." method="_on_TabContainer_sort_children"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/Add" to="." method="_on_Add_pressed"]
