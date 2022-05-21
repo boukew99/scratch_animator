@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TextureButton 
+
+signal drawing(line)
+
+var line = preload(\"line.tscn\")
+var current_line
+
+var max_distance = 400
+var bias = 4
+var pos = Vector2.ZERO
+var last_point = Vector2.ZERO
+var velocity = Vector2.ZERO
+
+func _on_Canvas_gui_input(event):
+	if event is InputEventMouseMotion and event.relative and pressed:
+		var new_direction = event.position - current_line.points[-1]
+		
+		var distance = last_point.distance_to(event.position) * bias # straigth
+		var angle =  cos(velocity.angle_to(new_direction)) # corner
+		
+		velocity += event.position - last_point
+		velocity = velocity.normalized()
+		
+#		var current_direction = current_line.points[-1] - current_line.points[-2] 
+#		var angle2 = cos(current_direction.angle_to(new_direction))
+		
+		if not angle > 0 or distance > max_distance * angle: #or distance > max_distance * angle2:
+			current_line.add_point(event.position)
+
+			last_point = event.position
+			pos = event.position
+			update()
+		else:
+			current_line.points[-1] = event.position
+
+	
+func _on_Canvas_button_down():
+	current_line = line.instance()
+	last_point = get_local_mouse_position()
+	
+	current_line.add_point( last_point )
+	current_line.add_point( last_point )
+	
+	add_child(current_line)
+	emit_signal(\"drawing\", current_line)
+
+
+func _draw():
+	draw_circle(last_point, 4, Color.red)
+	if current_line and current_line.points:
+		for point in current_line.points:
+			draw_circle(point, 4, Color.red)
+
+
+	draw_arc(pos, max_distance /bias/bias, -PI/2 + velocity.angle() , PI/2 + velocity.angle(), 25, Color.red, 2)
+	draw_arc(pos, max_distance / bias, -PI/2 + velocity.angle() , PI/2 + velocity.angle(), 25, Color.red, 2)
+	draw_line(pos, pos + velocity * max_distance, Color.orange, 2)
+
+func _on_Canvas_button_up():
+	current_line.add_point( get_local_mouse_position() )
+
+#
+#extends TextureButton 
+#
+#signal drawing(line)
+#
+#var line = preload(\"line.tscn\")
+#var current_line
+#
+#var max_distance = 20 * 2
+#var bias = 2 * 2
+#var pos = Vector2.ZERO
+#var last_point = Vector2.ZERO
+#
+#func _on_Canvas_gui_input(event):
+#	if event is InputEventMouseMotion and event.relative and pressed:
+##		current_line.add_point(event.position)
+#		var previous_point = current_line.points[-1]
+#		var new_direction = event.position - previous_point
+#		var previous_direction = previous_point - current_line.points[ current_line.get_point_count() -2 ]
+#
+#		var distance = previous_point.distance_to(event.position) * bias # straigth
+#		var angle =  cos(previous_direction.angle_to(new_direction)) # corner
+#		current_line.points[-1] = event.position
+#
+#		if angle < 0 or ( distance / angle ) > max_distance:
+#			current_line.add_point(event.position)
+#			last_point = event.position
+#			pos = event.position
+#			update()
+#
+##		var previous_point = current_line.points[ current_line.get_point_count() -1 ]
+##		var new_direction = event.position - previous_point
+##
+##		var distance = previous_point.distance_to(event.position)
+##		var angle =  cos(previous_directon.angle_to(new_direction))
+#
+#
+#func _on_Canvas_button_down():
+#	current_line = line.instance()
+#	current_line.add_point( get_local_mouse_position() )
+#	last_point = get_local_mouse_position()
+#	add_child(current_line)
+#	emit_signal(\"drawing\", current_line)
+#
+#
+#func _draw():
+#	draw_circle(last_point, 4, Color.red)
+#	if current_line and current_line.points:
+#		for point in current_line.points:
+#			draw_circle(point, 4, Color.red)
+#
+#
+#	draw_arc(pos, max_distance, -PI /2, PI/2, 25, Color.red, 2)
+#	draw_arc(pos, max_distance / bias, -PI/2, PI/2, 25, Color.red, 2)
+#
+#
+#func _on_Canvas_button_up():
+#	current_line.add_point( get_local_mouse_position() )
+"
+
+[node name="Canvas" type="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+expand = true
+stretch_mode = 2
+script = SubResource( 1 )
+
+[connection signal="button_down" from="." to="." method="_on_Canvas_button_down"]
+[connection signal="button_up" from="." to="." method="_on_Canvas_button_up"]
+[connection signal="gui_input" from="." to="." method="_on_Canvas_gui_input"]

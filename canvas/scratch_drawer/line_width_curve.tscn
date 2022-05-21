@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 1.4, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="WidthCurveLine2D" type="Line2D"]
+width = 4.0
+width_curve = SubResource( 1 )
+default_color = Color( 0.156863, 0.156863, 0.196078, 1 )
+antialiased = true

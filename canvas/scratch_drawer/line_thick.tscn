@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="ThickLine2D" type="Line2D"]
+width = 16.0
+default_color = Color( 0.156863, 0.156863, 0.196078, 1 )
+joint_mode = 2
+antialiased = true
