@@ -1,57 +1,94 @@
 extends TextureButton 
 #https://stackoverflow.com/questions/42889699/smooth-drawing-with-apple-pencil
 #https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
+
 signal drawing(line)
 
 var line = preload("line.tscn")
 var current_line
 
-var max_distance = 20 * 2
-var bias = 2 * 2
-var pos = Vector2.ZERO
-var last_point = Vector2.ZERO
+var velocity = Vector2.ZERO
+var perpendicular_distance = 4
+var time = UndoRedo.new()
+
+var points_saved = 0
 
 func _on_Canvas_gui_input(event):
 	if event is InputEventMouseMotion and event.relative and pressed:
-#		current_line.add_point(event.position)
-		var previous_point = current_line.points[ current_line.get_point_count() -1 ]
-		var new_direction = event.position - previous_point
-		var previous_direction = previous_point - current_line.points[ current_line.get_point_count() -2 ]
+		current_line.points[-1] = event.position
+		var new_velocity = current_line.points[-1]  - current_line.points[-2]
 		
-		var distance = previous_point.distance_to(event.position) * bias # straigth
-		var angle =  cos(previous_direction.angle_to(new_direction)) # corner
-		
-		if angle < 0 or ( distance / angle ) > max_distance:
-			current_line.add_point(event.position)
-			last_point = event.position
-			pos = event.position
-			update()
+		if not velocity: # one time use
+			velocity = new_velocity
 			
-#		var previous_point = current_line.points[ current_line.get_point_count() -1 ]
-#		var new_direction = event.position - previous_point
-#
-#		var distance = previous_point.distance_to(event.position)
-#		var angle =  cos(previous_directon.angle_to(new_direction))
-
-	
+		else:
+			var projected = new_velocity.project(velocity)
+			# backwards test if new_velocity.dot(velocity) <= 0:?
+			
+			if (projected - new_velocity).length() > perpendicular_distance :
+				velocity = new_velocity
+				current_line.add_point(event.position)
+			else:
+				points_saved +=1
+				
+#		update()
+		
 func _on_Canvas_button_down():
+	Input.set_use_accumulated_input(false)
+	
 	current_line = line.instance()
-	current_line.add_point( get_local_mouse_position() )
-	last_point = get_local_mouse_position()
 	add_child(current_line)
+	current_line.owner = self
+	
+	current_line.add_point( get_local_mouse_position() ) 
+	current_line.add_point( get_local_mouse_position() ) # now there is a line
+	
 	emit_signal("drawing", current_line)
 
-
 #func _draw():
-#	draw_circle(last_point, 4, Color.red)
 #	if current_line and current_line.points:
 #		for point in current_line.points:
 #			draw_circle(point, 4, Color.red)
-#
-#
-#	draw_arc(pos, max_distance, -PI /2, PI/2, 25, Color.red, 2)
-#	draw_arc(pos, max_distance / bias, -PI/2, PI/2, 25, Color.red, 2)
 
 
 func _on_Canvas_button_up():
-	current_line.add_point( get_local_mouse_position() )
+	Input.set_use_accumulated_input(true)
+	
+	time.create_action("instance_line")
+	time.add_do_reference(current_line) # frees lines when do history lost
+	time.add_do_method(self, "add_child", current_line) # Errors
+	time.add_undo_method(self, "remove_child", current_line)
+	time.commit_action()
+	
+	print("points save: ", float(points_saved)  / (points_saved + current_line.points.size()))
+	points_saved = 0
+
+func clear():
+	time.clear_history()
+	for line in get_children():
+		line.queue_free()
+		
+# has some limitations, automate with a `max_lines` trigger
+func capture_lines(path = ""):
+	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+	yield(VisualServer, "frame_post_draw")
+	
+	var image = get_viewport().get_texture().get_data()
+	image.flip_y()
+	image = image.get_rect(get_global_rect())
+		
+	var tex = ImageTexture.new()
+	tex.create_from_image(image)
+
+	time.create_action("capture_lines")
+	time.add_do_property(self, "texture_normal", tex)
+	time.add_undo_property(self, "texture_normal", null)
+	time.commit_action()
+	
+	for index in range(get_child_count()):
+		get_child(index).hide() # visible in Remote Scene Tree
+	
+	if path:
+		image.save_png(path)
+
+

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ActionCopy.png-b8f8a8b5b6a8f4c02f530d207747518a.stex"
+path="res://.import/red_line.png-0a55737c7a8a5e297d6bcb2065b987fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/ActionCopy.png"
-dest_files=[ "res://.import/ActionCopy.png-b8f8a8b5b6a8f4c02f530d207747518a.stex" ]
+source_file="res://canvas/scratch_drawer/red_line.png"
+dest_files=[ "res://.import/red_line.png-0a55737c7a8a5e297d6bcb2065b987fe.stex" ]
 
 [params]
 

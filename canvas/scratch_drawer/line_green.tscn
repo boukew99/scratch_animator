@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 2
+
+[node name="GreenLine2D" type="Line2D"]
+material = SubResource( 1 )
+default_color = Color( 0, 1, 0, 1 )
+joint_mode = 2
+antialiased = true

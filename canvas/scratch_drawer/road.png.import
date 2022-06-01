@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ActionPaste.png-4620dd4dae44b977663e9803a0945469.stex"
+path="res://.import/road.png-a733333c305b2b89796127e106e4fc49.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/ActionPaste.png"
-dest_files=[ "res://.import/ActionPaste.png-4620dd4dae44b977663e9803a0945469.stex" ]
+source_file="res://canvas/scratch_drawer/road.png"
+dest_files=[ "res://.import/road.png-a733333c305b2b89796127e106e4fc49.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

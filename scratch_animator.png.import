@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scratch_animator.png-03e379b684af284e7c429f34f7c7ce2f.stex"
+path="res://.import/scratch_animator.png-365556c706c03a00622d154cb0dd03cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/scratch_animator.png"
-dest_files=[ "res://.import/scratch_animator.png-03e379b684af284e7c429f34f7c7ce2f.stex" ]
+source_file="res://scratch_animator.png"
+dest_files=[ "res://.import/scratch_animator.png-365556c706c03a00622d154cb0dd03cb.stex" ]
 
 [params]
 

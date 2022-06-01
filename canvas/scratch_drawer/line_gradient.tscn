@@ -5,6 +5,6 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 1 )
 
 [node name="GradientLine2D" type="Line2D"]
 width = 4.0
-default_color = Color( 0.156863, 0.156863, 0.196078, 1 )
+default_color = Color( 0, 0, 0, 1 )
 gradient = SubResource( 1 )
 antialiased = true
