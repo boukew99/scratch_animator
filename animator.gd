@@ -19,9 +19,9 @@ func _on_Animator_ready():
 	var config = ConfigFile.new()
 	if not config.load("scratch_animator.cfg"):
 		aspect.ratio = config.get_value("frame", "aspect_ratio", 16 / 9.0)
-		$ConfigDialog/GridContainer/AspectRatio.value = aspect.ratio 
+		$ConfigDialog/VBoxContainer/GridContainer/AspectRatio.value = aspect.ratio 
 	
-	$About.popup_centered()
+	$ConfigDialog.popup_centered()
 	if OS.get_name() == "HTML5":
 		$VBoxContainer/HBoxContainer/Save.hide()
 	fps_controls.hide()
@@ -174,11 +174,8 @@ func _on_Tabs_tab_changed(tab):
 	slider.value = tab
 
 func _on_RichTextLabel_meta_clicked(meta):
-	match meta:
-		"Godot Engine":
-			OS.shell_open("https://godotengine.org/")
-		"source":
-			OS.shell_open("https://github.com/boukew99/scratch_animator")
+	if meta is String:
+		OS.shell_open(meta)
 
 
 func _on_PanelContainer_gui_input(event):
@@ -218,14 +215,10 @@ func _on_Filename_pressed():
 
 func _on_ConfigDialog_confirmed():
 	var config = ConfigFile.new()
-	config.set_value("frame", "aspect_ratio", $ConfigDialog/GridContainer/AspectRatio.value)
+	config.set_value("frame", "aspect_ratio", $ConfigDialog/VBoxContainer/GridContainer/AspectRatio.value)
 	
 	config.save("scratch_animator.cfg")
 	get_tree().reload_current_scene()
-
-
-func _on_Config_pressed():
-	$ConfigDialog.popup_centered()
 
 
 func _on_FPSSlider_value_changed(value):

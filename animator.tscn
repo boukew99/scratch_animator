@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://animator.gd" type="Script" id=1]
 [ext_resource path="res://canvas/canvas.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://icons/Save.png" type="Texture" id=7]
 [ext_resource path="res://icons/Add.png" type="Texture" id=8]
 [ext_resource path="res://icons/Remove.png" type="Texture" id=9]
-[ext_resource path="res://icons/config.png" type="Texture" id=10]
 [ext_resource path="res://icons/Onion.svg" type="Texture" id=13]
 [ext_resource path="res://icons/AnimatedTexture.png" type="Texture" id=14]
 [ext_resource path="res://canvas/line.tscn" type="PackedScene" id=18]
@@ -381,69 +380,6 @@ margin_bottom = 250.0
 current_dir = "res://export"
 current_path = "res://export/"
 
-[node name="About" type="AcceptDialog" parent="."]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 311.0
-margin_bottom = 197.0
-rect_min_size = Vector2( 304, 143 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-window_title = "About"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="About"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -36.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="About/VBoxContainer"]
-margin_right = 288.0
-margin_bottom = 120.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="About/VBoxContainer/HBoxContainer2"]
-margin_right = 68.0
-margin_bottom = 90.0
-
-[node name="TextureRect" type="TextureRect" parent="About/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_right = 64.0
-margin_bottom = 120.0
-texture = ExtResource( 20 )
-
-[node name="HSeparator" type="HSeparator" parent="About/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 4.0
-
-[node name="Config" type="Button" parent="About/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 124.0
-margin_right = 68.0
-margin_bottom = 146.0
-text = "config"
-icon = ExtResource( 10 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="About/VBoxContainer/HBoxContainer2"]
-margin_left = 68.0
-margin_right = 288.0
-margin_bottom = 120.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-bbcode_text = "[color=yellow]Scratch Animator[/color]
-[rainbow][wave]--------------------------[/wave][/rainbow]
-Simple animation program made in [url]Godot Engine[/url] with open [url]source[/url].
-drop files to import them.
-examples available here
-manual link"
-text = "Scratch Animator
---------------------------
-Simple animation program made in Godot Engine with open source.
-drop files to import them.
-examples available here
-manual link"
-fit_content_height = true
-
 [node name="CapturesDialog" type="ConfirmationDialog" parent="."]
 margin_right = 200.0
 margin_bottom = 70.0
@@ -575,22 +511,70 @@ margin_bottom = 40.0
 [node name="ConfigDialog" type="ConfirmationDialog" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 257.0
-margin_bottom = 196.0
+margin_right = 357.0
+margin_bottom = 230.0
 window_title = "Configure"
-dialog_text = "Set configuration and restarts on OK."
 
-[node name="GridContainer" type="GridContainer" parent="ConfigDialog"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfigDialog"]
 margin_left = 8.0
-margin_top = 22.0
-margin_right = 242.0
-margin_bottom = 153.0
+margin_top = 8.0
+margin_right = 342.0
+margin_bottom = 187.0
 
-[node name="Label" type="Label" parent="ConfigDialog/GridContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ConfigDialog/VBoxContainer"]
+margin_right = 334.0
+margin_bottom = 90.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfigDialog/VBoxContainer/HBoxContainer2"]
+margin_right = 64.0
+margin_bottom = 90.0
+
+[node name="TextureRect" type="TextureRect" parent="ConfigDialog/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 20 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ConfigDialog/VBoxContainer/HBoxContainer2"]
+margin_left = 68.0
+margin_right = 334.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Scratch Animator[/color]
+[rainbow][wave]--------------------------[/wave][/rainbow]
+Simple animation program made in [url=https://godotengine.org/]Godot Engine[/url] with open [url=https://github.com/boukew99/scratch_animator]source[/url].
+[url]help/manual[/url]
+[url]examples[/url]"
+text = "Scratch Animator
+--------------------------
+Simple animation program made in Godot Engine with open source.
+help/manual
+examples"
+fit_content_height = true
+
+[node name="HSeparator" type="HSeparator" parent="ConfigDialog/VBoxContainer"]
+margin_top = 94.0
+margin_right = 334.0
+margin_bottom = 98.0
+
+[node name="Label2" type="Label" parent="ConfigDialog/VBoxContainer"]
+margin_top = 102.0
+margin_right = 334.0
+margin_bottom = 133.0
+text = "Set configuration and restarts on OK.
+Drop files to import them."
+
+[node name="GridContainer" type="GridContainer" parent="ConfigDialog/VBoxContainer"]
+margin_top = 137.0
+margin_right = 334.0
+margin_bottom = 179.0
+
+[node name="Label" type="Label" parent="ConfigDialog/VBoxContainer/GridContainer"]
 margin_right = 74.0
 margin_bottom = 14.0
 
-[node name="AspectRatio" type="SpinBox" parent="ConfigDialog/GridContainer"]
+[node name="AspectRatio" type="SpinBox" parent="ConfigDialog/VBoxContainer/GridContainer"]
 margin_top = 18.0
 margin_right = 74.0
 margin_bottom = 42.0
@@ -621,7 +605,6 @@ value = 1.778
 [connection signal="timeout" from="FPSTimer" to="." method="_on_FPSTimer_timeout"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="pressed" from="About/VBoxContainer/HBoxContainer2/VBoxContainer/Config" to="." method="_on_Config_pressed"]
-[connection signal="meta_clicked" from="About/VBoxContainer/HBoxContainer2/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="confirmed" from="CapturesDialog" to="." method="_on_ConfirmationDialog_confirmed"]
 [connection signal="confirmed" from="ConfigDialog" to="." method="_on_ConfigDialog_confirmed"]
+[connection signal="meta_clicked" from="ConfigDialog/VBoxContainer/HBoxContainer2/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
