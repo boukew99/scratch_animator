@@ -2,5 +2,5 @@
 
 [node name="Line2D" type="Line2D"]
 width = 4.0
-default_color = Color( 0.156863, 0.156863, 0.196078, 1 )
+default_color = Color( 1, 1, 1, 1 )
 antialiased = true
