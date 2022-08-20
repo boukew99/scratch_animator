@@ -200,8 +200,6 @@ wait_time = 0.083
 [node name="FileDialog" type="FileDialog" parent="."]
 margin_right = 356.0
 margin_bottom = 250.0
-current_dir = "res://export"
-current_path = "res://export/"
 
 [node name="CapturesDialog" type="ConfirmationDialog" parent="."]
 margin_right = 200.0

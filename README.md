@@ -1,4 +1,4 @@
-# Scratch Animator ![icon](scratch_animator.png) 
+# Scratch Animator 
 Scratch Animator is an [MIT](LICENSE) demo of an simple animation program with the [scratch canvas addon](https://github.com/boukew99/scratch_canvas) in the [Godot Engine](https://godotengine.org/). Try it out on the [webversion](https://howyoudoing.itch.io/scratch-animator). Features basic animation features, such as Drawing, Reordering (Drag & Drop), Adding, Duplicating, Removing, Naming and Saving frames. Install it from the [Godot Asset Library](https://godotengine.org/asset-library/asset/1273) under `Scratch Animator` or clone the project and import it in the [Godot Engine](https://godotengine.org/).
 
 
@@ -19,3 +19,4 @@ Scratch Animator can save each frame individually as an image, but not in video 
 
 ## Inspirations
 Loosly taken inspirations from [Behind the Design: Looom](https://developer.apple.com/news/?id=s26ze13m) and [Loom user guide](https://www.iorama.studio/looom-user-guide).
+
