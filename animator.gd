@@ -7,7 +7,7 @@ var bookmarks = [0]
 
 onready var slider = $VBoxContainer/VSlider
 onready var aspect = $VBoxContainer/AspectRatioContainer
-onready var frames = $VBoxContainer/AspectRatioContainer/Frames
+onready var frames = $VBoxContainer/Frames
 onready var file_dialog = $FileDialog
 onready var timer = $FPSTimer
 onready var name_label = $VBoxContainer/HBoxContainer/Filename
@@ -15,14 +15,14 @@ onready var shader = $VBoxContainer/AspectRatioContainer/Shader
 
 func _on_Animator_ready():
 	var config = ConfigFile.new()
-	if not config.load("scratch_animator.cfg"):
-		aspect.ratio = config.get_value("frame", "aspect_ratio", 16 / 9.0)
-		$ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer/AspectRatio.value = aspect.ratio 
+#	if not config.load("scratch_animator.cfg"):
+#		aspect.ratio = config.get_value("frame", "aspect_ratio", 16 / 9.0)
+#		$ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer/AspectRatio.value = aspect.ratio 
 	
 	$ConfigDialog.popup_centered()
 	if OS.get_name() == "HTML5":
 		$VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer/Save.hide()
-	$ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer3/FPSSlider.share($ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer3/FPSSpinBox)
+	$VBoxContainer/HBoxContainer3/HBoxContainer3/FPSSlider.share($VBoxContainer/HBoxContainer3/HBoxContainer3/FPSSpinBox)
 	
 	slider.max_value = frames.get_child_count() -1
 	
@@ -55,8 +55,9 @@ func _on_files_dropped(files, screen):
 				if screen_shader is Material:
 					shader.material = screen_shader
 					shader.show()
-					
 				
+				
+
 func _on_Next_pressed():
 	slider.value = wrapi(slider.value + 1, 0, frames.get_child_count())
 
@@ -249,3 +250,12 @@ func _on_VSlider_value_changed(value):
 func _on_Previous_pressed():
 	slider.value -= 1
 
+
+
+func _on_Frames_resized():
+	$ConfigDialog/TabContainer/Canvas/Aspect.text = "size: %s px, aspect: %0.3f." % [frames.rect_size, frames.rect_size.x / frames.rect_size.y]
+
+
+
+func _on_Config_pressed():
+	$ConfigDialog.popup_centered()

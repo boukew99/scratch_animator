@@ -57,6 +57,7 @@ func _on_Canvas_button_up():
 	time.create_action("instance_line")
 	time.add_do_reference(current_line) # frees lines when do history lost
 	time.add_do_method(self, "add_child", current_line) # Errors
+#	remove_child(current_line) #hack
 	time.add_undo_method(self, "remove_child", current_line)
 	time.commit_action()
 	

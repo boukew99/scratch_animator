@@ -1,56 +1,55 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://animator.gd" type="Script" id=1]
 [ext_resource path="res://canvas/canvas.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icons/Loop.png" type="Texture" id=3]
-[ext_resource path="res://icons/MoveLeft.png" type="Texture" id=4]
-[ext_resource path="res://icons/Duplicate.png" type="Texture" id=5]
-[ext_resource path="res://icons/MoveRight.png" type="Texture" id=6]
-[ext_resource path="res://icons/Save.png" type="Texture" id=7]
-[ext_resource path="res://icons/Add.png" type="Texture" id=8]
-[ext_resource path="res://icons/Remove.png" type="Texture" id=9]
-[ext_resource path="res://icons/Play.png" type="Texture" id=10]
-[ext_resource path="res://icons/Onion.svg" type="Texture" id=13]
-[ext_resource path="res://scratch_animator.png" type="Texture" id=20]
+[ext_resource path="res://tool-files/Loop.png" type="Texture" id=3]
+[ext_resource path="res://tool-files/MoveLeft.png" type="Texture" id=4]
+[ext_resource path="res://tool-files/Duplicate.png" type="Texture" id=5]
+[ext_resource path="res://tool-files/MoveRight.png" type="Texture" id=6]
+[ext_resource path="res://tool-files/Save.png" type="Texture" id=7]
+[ext_resource path="res://tool-files/Add.png" type="Texture" id=8]
+[ext_resource path="res://tool-files/Remove.png" type="Texture" id=9]
+[ext_resource path="res://tool-files/Play.png" type="Texture" id=10]
+[ext_resource path="res://tool-files/Onion.svg" type="Texture" id=13]
 
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="InputEventKey" id=9]
+[sub_resource type="InputEventKey" id=23]
 scancode = 80
 
 [sub_resource type="ShortCut" id=10]
-shortcut = SubResource( 9 )
+shortcut = SubResource( 23 )
 
-[sub_resource type="InputEventKey" id=16]
+[sub_resource type="InputEventKey" id=18]
 scancode = 16777236
 
 [sub_resource type="ShortCut" id=17]
-shortcut = SubResource( 16 )
+shortcut = SubResource( 18 )
 
-[sub_resource type="InputEventKey" id=13]
+[sub_resource type="InputEventKey" id=19]
 scancode = 16777235
 
 [sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 13 )
+shortcut = SubResource( 19 )
 
-[sub_resource type="InputEventKey" id=5]
+[sub_resource type="InputEventKey" id=20]
 scancode = 65
 
 [sub_resource type="ShortCut" id=6]
-shortcut = SubResource( 5 )
+shortcut = SubResource( 20 )
 
-[sub_resource type="InputEventKey" id=11]
+[sub_resource type="InputEventKey" id=21]
 scancode = 68
 
 [sub_resource type="ShortCut" id=12]
-shortcut = SubResource( 11 )
+shortcut = SubResource( 21 )
 
-[sub_resource type="InputEventKey" id=7]
+[sub_resource type="InputEventKey" id=22]
 scancode = 82
 
 [sub_resource type="ShortCut" id=8]
-shortcut = SubResource( 7 )
+shortcut = SubResource( 22 )
 
 [node name="Animator" type="PanelContainer"]
 anchor_right = 1.0
@@ -65,125 +64,149 @@ margin_bottom = 385.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 498.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 
 [node name="Capture" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_right = 31.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 text = "OK"
 
-[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Config" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 35.0
-margin_right = 63.0
-margin_bottom = 22.0
-hint_tooltip = "saves the editable data of the animation in a text file."
-icon = ExtResource( 7 )
+margin_right = 86.0
+margin_bottom = 24.0
+text = "Config"
 
 [node name="Filename" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 67.0
-margin_right = 400.0
-margin_bottom = 22.0
-size_flags_horizontal = 3
+margin_left = 90.0
+margin_right = 102.0
+margin_bottom = 24.0
 flat = true
 clip_text = true
+
+[node name="Tabs" type="Tabs" parent="VBoxContainer/HBoxContainer"]
+margin_left = 106.0
+margin_right = 400.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
 
 [node name="Undo" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 404.0
 margin_right = 450.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 text = "Undo"
 
 [node name="Redo" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 454.0
 margin_right = 498.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 text = "Redo"
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
-margin_top = 26.0
+[node name="Frames" type="TabContainer" parent="VBoxContainer"]
+margin_top = 28.0
 margin_right = 498.0
-margin_bottom = 352.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 1, 1 )
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 15 )
+
+[node name="0" parent="VBoxContainer/Frames" instance=ExtResource( 2 )]
+margin_top = 24.0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 191.0
+margin_right = 498.0
+margin_bottom = 350.0
 size_flags_vertical = 3
 ratio = 1.778
 
-[node name="Frames" type="TabContainer" parent="VBoxContainer/AspectRatioContainer"]
-margin_top = 22.955
-margin_right = 498.0
-margin_bottom = 303.045
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 15 )
-tabs_visible = false
-
-[node name="0" parent="VBoxContainer/AspectRatioContainer/Frames" instance=ExtResource( 2 )]
-
 [node name="Shader" type="ColorRect" parent="VBoxContainer/AspectRatioContainer"]
 visible = false
-margin_top = 22.955
-margin_right = 498.0
-margin_bottom = 303.045
+margin_left = 107.649
+margin_right = 390.351
+margin_bottom = 159.0
 mouse_filter = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 356.0
+margin_top = 354.0
 margin_right = 498.0
 margin_bottom = 378.0
-alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 139.0
-margin_right = 167.0
-margin_bottom = 22.0
+margin_right = 28.0
+margin_bottom = 24.0
 toggle_mode = true
 shortcut = SubResource( 10 )
 icon = ExtResource( 10 )
 
 [node name="Previous" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 171.0
-margin_right = 199.0
-margin_bottom = 22.0
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 24.0
 hint_tooltip = "next"
 action_mode = 0
 shortcut = SubResource( 17 )
 icon = ExtResource( 4 )
 
 [node name="Next" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 203.0
-margin_right = 231.0
-margin_bottom = 22.0
+margin_left = 64.0
+margin_right = 92.0
+margin_bottom = 24.0
 hint_tooltip = "next"
 action_mode = 0
 shortcut = SubResource( 2 )
 icon = ExtResource( 6 )
 
 [node name="OnionSkinning" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 235.0
-margin_right = 263.0
-margin_bottom = 22.0
+margin_left = 96.0
+margin_right = 124.0
+margin_bottom = 24.0
 toggle_mode = true
 icon = ExtResource( 13 )
 
 [node name="Add" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 267.0
-margin_right = 295.0
-margin_bottom = 22.0
+margin_left = 128.0
+margin_right = 156.0
+margin_bottom = 24.0
 hint_tooltip = "add"
 shortcut = SubResource( 6 )
 icon = ExtResource( 8 )
 
 [node name="Duplicate" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 299.0
-margin_right = 327.0
-margin_bottom = 22.0
+margin_left = 160.0
+margin_right = 188.0
+margin_bottom = 24.0
 shortcut = SubResource( 12 )
 icon = ExtResource( 5 )
 
 [node name="Remove" type="Button" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 331.0
-margin_right = 359.0
-margin_bottom = 22.0
+margin_left = 192.0
+margin_right = 220.0
+margin_bottom = 24.0
 hint_tooltip = "remove current frame"
 shortcut = SubResource( 8 )
 icon = ExtResource( 9 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 324.0
+margin_right = 498.0
+margin_bottom = 24.0
+size_flags_horizontal = 10
+
+[node name="FPSSlider" type="HSlider" parent="VBoxContainer/HBoxContainer3/HBoxContainer3"]
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 96, 0 )
+min_value = 4.0
+max_value = 32.0
+value = 12.0
+
+[node name="FPSSpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer3/HBoxContainer3"]
+margin_left = 100.0
+margin_right = 174.0
+margin_bottom = 24.0
+suffix = "fps"
 
 [node name="VSlider" type="HSlider" parent="VBoxContainer"]
 visible = false
@@ -330,143 +353,91 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="ConfigDialog" type="ConfirmationDialog" parent="."]
+visible = true
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 257.0
-margin_bottom = 155.0
+margin_right = 505.0
+margin_bottom = 385.0
 window_title = "Configure"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ConfigDialog"]
+[node name="Canvas" type="VBoxContainer" parent="ConfigDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 305.0
-margin_bottom = 112.0
+margin_right = -8.0
+margin_bottom = -36.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ConfigDialog/VBoxContainer"]
-margin_top = 137.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfigDialog/Canvas"]
 margin_right = 482.0
-margin_bottom = 221.0
+margin_bottom = 102.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ConfigDialog/VBoxContainer/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfigDialog/Canvas/VBoxContainer"]
+margin_right = 482.0
+margin_bottom = 24.0
 
-[node name="Label" type="Label" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="ConfigDialog/Canvas/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
 margin_right = 75.0
-margin_bottom = 14.0
+margin_bottom = 19.0
 text = "aspect ratio"
 
-[node name="AspectRatio" type="SpinBox" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_top = 18.0
-margin_right = 75.0
-margin_bottom = 42.0
+[node name="AspectRatio" type="SpinBox" parent="ConfigDialog/Canvas/VBoxContainer/HBoxContainer"]
+margin_left = 79.0
+margin_right = 153.0
+margin_bottom = 24.0
 min_value = 1.0
 max_value = 2.0
 step = 0.001
 value = 1.778
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ConfigDialog/VBoxContainer/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="ConfigDialog/Canvas/VBoxContainer"]
+margin_top = 28.0
+margin_right = 482.0
+margin_bottom = 48.0
 
-[node name="Label" type="Label" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer2"]
-margin_top = 46.0
-margin_right = 75.0
-margin_bottom = 60.0
+[node name="Label" type="Label" parent="ConfigDialog/Canvas/VBoxContainer/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 74.0
+margin_bottom = 17.0
 text = "Background"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer2"]
-margin_top = 64.0
-margin_right = 75.0
-margin_bottom = 84.0
+[node name="ColorPickerButton" type="ColorPickerButton" parent="ConfigDialog/Canvas/VBoxContainer/HBoxContainer2"]
+margin_left = 78.0
+margin_right = 97.0
+margin_bottom = 20.0
 text = "c"
 
-[node name="Loop" type="CheckBox" parent="ConfigDialog/VBoxContainer/VBoxContainer"]
-margin_left = 144.0
-margin_top = 209.0
-margin_right = 220.0
-margin_bottom = 233.0
+[node name="Loop" type="CheckBox" parent="ConfigDialog/Canvas/VBoxContainer"]
+margin_top = 52.0
+margin_right = 482.0
+margin_bottom = 76.0
 text = "loop"
 icon = ExtResource( 3 )
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ConfigDialog/VBoxContainer/VBoxContainer"]
-margin_left = 366.0
-margin_top = 211.0
-margin_right = 490.0
-margin_bottom = 233.0
-
-[node name="Label" type="Label" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer3"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "frames per second"
-
-[node name="FPSSlider" type="HSlider" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer3"]
-margin_left = 8.0
-margin_right = 104.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 96, 0 )
-min_value = 4.0
-max_value = 32.0
-value = 12.0
-
-[node name="FPSSpinBox" type="SpinBox" parent="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer3"]
-margin_right = 74.0
-margin_bottom = 24.0
-
-[node name="WindowDialog" type="WindowDialog" parent="."]
-margin_right = 48.0
-margin_bottom = 40.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="WindowDialog"]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 497.0
-margin_bottom = 105.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog/HBoxContainer2"]
-margin_right = 64.0
-margin_bottom = 90.0
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/HBoxContainer2/VBoxContainer"]
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 20 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WindowDialog/HBoxContainer2"]
-margin_left = 68.0
+[node name="Save" type="Button" parent="ConfigDialog/Canvas/VBoxContainer"]
+margin_top = 80.0
 margin_right = 482.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-bbcode_text = "[color=yellow]Scratch Animator[/color]
-[rainbow][wave]--------------------------[/wave][/rainbow]
-[url=https://github.com/boukew99/scratch_animator]source[/url].
-[url]help/manual[/url]
-[url]examples[/url]"
-text = "Scratch Animator
---------------------------
-source.
-help/manual
-examples"
-fit_content_height = true
+margin_bottom = 102.0
+hint_tooltip = "saves the editable data of the animation in a text file."
+icon = ExtResource( 7 )
 
-[node name="Help" type="Label" parent="WindowDialog"]
-margin_left = 15.0
-margin_top = 117.0
-margin_right = 497.0
-margin_bottom = 148.0
-text = "Drop files to import them."
+[node name="Aspect" type="Label" parent="ConfigDialog/Canvas"]
+margin_top = 106.0
+margin_right = 482.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
 
 [connection signal="ready" from="." to="." method="_on_Animator_ready"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Capture" to="." method="_on_Capture_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Config" to="." method="_on_Config_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Filename" to="." method="_on_Filename_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Undo" to="." method="_on_Undo_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Redo" to="." method="_on_Redo_pressed"]
-[connection signal="gui_input" from="VBoxContainer/AspectRatioContainer/Frames" to="." method="_on_PanelContainer_gui_input"]
-[connection signal="sort_children" from="VBoxContainer/AspectRatioContainer/Frames" to="." method="_on_Frames_sort_children"]
-[connection signal="tab_changed" from="VBoxContainer/AspectRatioContainer/Frames" to="." method="_on_Frames_tab_changed"]
+[connection signal="gui_input" from="VBoxContainer/Frames" to="." method="_on_PanelContainer_gui_input"]
+[connection signal="resized" from="VBoxContainer/Frames" to="." method="_on_Frames_resized"]
+[connection signal="sort_children" from="VBoxContainer/Frames" to="." method="_on_Frames_sort_children"]
+[connection signal="tab_changed" from="VBoxContainer/Frames" to="." method="_on_Frames_tab_changed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer3/Play" to="." method="_on_Play_toggled"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Previous" to="." method="_on_Previous_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Next" to="." method="_on_Next_pressed"]
@@ -474,13 +445,13 @@ text = "Drop files to import them."
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Add" to="." method="_on_Add_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Duplicate" to="." method="_on_Duplicate_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Remove" to="." method="_on_Remove_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer3/HBoxContainer3/FPSSlider" to="." method="_on_FPSSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/VSlider" to="." method="_on_VSlider_value_changed"]
 [connection signal="timeout" from="FPSTimer" to="." method="_on_FPSTimer_timeout"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="confirmed" from="CapturesDialog" to="." method="_on_ConfirmationDialog_confirmed"]
 [connection signal="confirmed" from="ConfigDialog" to="." method="_on_ConfigDialog_confirmed"]
-[connection signal="value_changed" from="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer/AspectRatio" to="." method="_on_AspectRatio_value_changed"]
-[connection signal="color_changed" from="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer2/ColorPickerButton" to="." method="_on_ColorPickerButton_color_changed"]
-[connection signal="value_changed" from="ConfigDialog/VBoxContainer/VBoxContainer/HBoxContainer3/FPSSlider" to="." method="_on_FPSSlider_value_changed"]
-[connection signal="meta_clicked" from="WindowDialog/HBoxContainer2/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
+[connection signal="value_changed" from="ConfigDialog/Canvas/VBoxContainer/HBoxContainer/AspectRatio" to="." method="_on_AspectRatio_value_changed"]
+[connection signal="color_changed" from="ConfigDialog/Canvas/VBoxContainer/HBoxContainer2/ColorPickerButton" to="." method="_on_ColorPickerButton_color_changed"]
+[connection signal="pressed" from="ConfigDialog/Canvas/VBoxContainer/Save" to="." method="_on_Save_pressed"]
