@@ -1,0 +1,317 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line_0.png" type="Texture" id=1]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/red_line.png" type="Texture" id=2]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line-configure.gd" type="Script" id=3]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/green_line.png" type="Texture" id=4]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/blue_line.png" type="Texture" id=5]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line_1.png" type="Texture" id=6]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line_5.png" type="Texture" id=7]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line_3.png" type="Texture" id=8]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/alert_fence.png" type="Texture" id=9]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/underline.png" type="Texture" id=10]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line_2.png" type="Texture" id=11]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/road.png" type="Texture" id=12]
+[ext_resource path="res://addons/scratch_canvas/line-configure-files/line_4.png" type="Texture" id=13]
+[ext_resource path="res://addons/scratch_canvas/canvas.tscn" type="PackedScene" id=14]
+
+[sub_resource type="ButtonGroup" id=2]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="line-configure" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 505.0
+margin_bottom = 385.0
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer"]
+margin_right = 314.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+
+[node name="Canvas" parent="HSplitContainer/ColorRect" instance=ExtResource( 14 )]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HSplitContainer"]
+margin_left = 318.0
+margin_right = 358.0
+margin_bottom = 378.0
+
+[node name="Line" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_right = 40.0
+margin_bottom = 24.0
+hint_tooltip = "line"
+pressed = true
+group = SubResource( 2 )
+icon = ExtResource( 1 )
+
+[node name="Rounded" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 40.0
+margin_bottom = 52.0
+hint_tooltip = "rounded"
+group = SubResource( 2 )
+icon = ExtResource( 6 )
+
+[node name="Thick" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 80.0
+hint_tooltip = "thick"
+group = SubResource( 2 )
+icon = ExtResource( 11 )
+
+[node name="WidthCurve" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 84.0
+margin_right = 40.0
+margin_bottom = 108.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 8 )
+
+[node name="Dash" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 112.0
+margin_right = 40.0
+margin_bottom = 136.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 13 )
+
+[node name="Underline" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 140.0
+margin_right = 40.0
+margin_bottom = 164.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 10 )
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 168.0
+margin_right = 40.0
+margin_bottom = 172.0
+
+[node name="Gradient" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 176.0
+margin_right = 40.0
+margin_bottom = 200.0
+hint_tooltip = "gradient"
+group = SubResource( 2 )
+icon = ExtResource( 13 )
+
+[node name="Rainbow" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 204.0
+margin_right = 40.0
+margin_bottom = 228.0
+hint_tooltip = "rainbow"
+group = SubResource( 2 )
+icon = ExtResource( 7 )
+
+[node name="Fence" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 232.0
+margin_right = 40.0
+margin_bottom = 256.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 9 )
+
+[node name="Road" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 260.0
+margin_right = 40.0
+margin_bottom = 284.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 12 )
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 288.0
+margin_right = 40.0
+margin_bottom = 292.0
+
+[node name="Red" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 296.0
+margin_right = 40.0
+margin_bottom = 320.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 2 )
+
+[node name="Green" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 324.0
+margin_right = 40.0
+margin_bottom = 348.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 4 )
+
+[node name="Blue" type="CheckBox" parent="HSplitContainer/VBoxContainer2"]
+margin_top = 352.0
+margin_right = 40.0
+margin_bottom = 376.0
+hint_tooltip = "width curve"
+group = SubResource( 2 )
+icon = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+margin_left = 362.0
+margin_right = 498.0
+margin_bottom = 378.0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="HSplitContainer/VBoxContainer"]
+margin_right = 136.0
+margin_bottom = 86.0
+
+[node name="Line" type="CheckBox" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_right = 52.0
+margin_bottom = 24.0
+group = SubResource( 1 )
+text = "line"
+
+[node name="Label2" type="Label" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 88.0
+margin_bottom = 19.0
+text = "color"
+
+[node name="LineColor" type="ColorPickerButton" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_left = 92.0
+margin_right = 130.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 38, 0 )
+color = Color( 0.156863, 0.156863, 0.196078, 1 )
+
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_top = 28.0
+margin_right = 4.0
+margin_bottom = 42.0
+
+[node name="Label3" type="Label" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_left = 8.0
+margin_top = 28.0
+margin_right = 43.0
+margin_bottom = 42.0
+text = "width"
+
+[node name="Width" type="HSlider" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_top = 46.0
+margin_right = 136.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 136, 0 )
+min_value = 1.0
+max_value = 34.0
+value = 4.0
+tick_count = 7
+
+[node name="VSeparator2" type="VSeparator" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_top = 66.0
+margin_right = 4.0
+margin_bottom = 86.0
+
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_left = 8.0
+margin_top = 66.0
+margin_right = 37.0
+margin_bottom = 86.0
+items = [ "", null, false, 0, null ]
+selected = 0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/HFlowContainer"]
+margin_left = 41.0
+margin_top = 69.0
+margin_right = 87.0
+margin_bottom = 83.0
+text = "texture"
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 136.0
+margin_bottom = 94.0
+
+[node name="HFlowContainer2" type="HFlowContainer" parent="HSplitContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 136.0
+margin_bottom = 276.0
+size_flags_vertical = 3
+
+[node name="BackFill" type="CheckBox" parent="HSplitContainer/VBoxContainer/HFlowContainer2"]
+margin_right = 73.0
+margin_bottom = 24.0
+group = SubResource( 1 )
+text = "backfill"
+
+[node name="Label2" type="Label" parent="HSplitContainer/VBoxContainer/HFlowContainer2"]
+margin_left = 77.0
+margin_top = 5.0
+margin_right = 109.0
+margin_bottom = 19.0
+text = "color"
+
+[node name="LineColor" type="ColorPickerButton" parent="HSplitContainer/VBoxContainer/HFlowContainer2"]
+margin_top = 28.0
+margin_right = 38.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 38, 0 )
+color = Color( 0.156863, 0.156863, 0.196078, 1 )
+
+[node name="VSeparator2" type="VSeparator" parent="HSplitContainer/VBoxContainer/HFlowContainer2"]
+margin_left = 42.0
+margin_top = 28.0
+margin_right = 46.0
+margin_bottom = 48.0
+
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/VBoxContainer/HFlowContainer2"]
+margin_left = 50.0
+margin_top = 28.0
+margin_right = 79.0
+margin_bottom = 48.0
+items = [ "", null, false, 0, null ]
+selected = 0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/HFlowContainer2"]
+margin_left = 83.0
+margin_top = 31.0
+margin_right = 129.0
+margin_bottom = 45.0
+text = "texture"
+
+[node name="ToggleMode" type="CheckBox" parent="HSplitContainer/VBoxContainer"]
+margin_top = 280.0
+margin_right = 136.0
+margin_bottom = 304.0
+text = "toggle mode"
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/VBoxContainer"]
+margin_top = 308.0
+margin_right = 136.0
+margin_bottom = 312.0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer"]
+margin_top = 316.0
+margin_right = 136.0
+margin_bottom = 330.0
+text = "background"
+
+[node name="Background" type="ColorPickerButton" parent="HSplitContainer/VBoxContainer"]
+margin_top = 334.0
+margin_right = 136.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 38, 0 )
+color = Color( 1, 1, 1, 1 )
+
+[node name="OK" type="Button" parent="HSplitContainer/VBoxContainer"]
+margin_top = 358.0
+margin_right = 136.0
+margin_bottom = 378.0
+text = "OK"
+
+[connection signal="drawing" from="HSplitContainer/ColorRect/Canvas" to="." method="_on_Canvas_drawing"]
+[connection signal="color_changed" from="HSplitContainer/VBoxContainer/HFlowContainer/LineColor" to="." method="_on_LineColor_color_changed"]
+[connection signal="value_changed" from="HSplitContainer/VBoxContainer/HFlowContainer/Width" to="." method="_on_Width_value_changed"]
+[connection signal="color_changed" from="HSplitContainer/VBoxContainer/HFlowContainer2/LineColor" to="." method="_on_LineColor_color_changed"]
+[connection signal="color_changed" from="HSplitContainer/VBoxContainer/Background" to="." method="_on_Background_color_changed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/OK" to="." method="_on_OK_pressed"]
