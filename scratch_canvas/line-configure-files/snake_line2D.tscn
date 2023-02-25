@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scratch_canvas/line.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scratch_canvas/line-configure-files/snake_texture.png" type="Texture" id=2]
+
+[node name="SnakeLine2D" instance=ExtResource( 1 )]
+width = 32.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 2 )
+texture_mode = 1
