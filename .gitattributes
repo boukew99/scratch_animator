@@ -1,6 +1,0 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-
-# Ignore some files when exporting to a ZIP.
-/.gitattributes     export-ignore
-screenshot.png      export-ignore

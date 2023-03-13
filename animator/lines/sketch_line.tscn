@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://canvas/line.gd" type="Script" id=1]
+
+[node name="SketchLine2D" type="Line2D"]
+width = 2.0
+default_color = Color( 0.952941, 0.952941, 0.952941, 1 )
+antialiased = true
+script = ExtResource( 1 )
